@@ -1,0 +1,364 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2024  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.48+45 (git sha1 8acc77c1e, g++ 11.4.0-1ubuntu1~22.04 -fPIC -O3)
+
+-- Executing script file `../model/design.ys' --
+
+1. Executing Verilog-2005 frontend: UART_rx.v
+Parsing formal SystemVerilog input from `UART_rx.v' to AST representation.
+Storing AST representation for module `$abstract\UART_rx'.
+Successfully finished Verilog frontend.
+
+2. Executing PREP pass.
+
+2.1. Executing HIERARCHY pass (managing design hierarchy).
+
+2.2. Executing AST frontend in derive mode using pre-parsed AST for module `\UART_rx'.
+Generating RTLIL representation for module `\UART_rx'.
+
+2.2.1. Analyzing design hierarchy..
+Top module:  \UART_rx
+
+2.2.2. Analyzing design hierarchy..
+Top module:  \UART_rx
+Removing unused module `$abstract\UART_rx'.
+Removed 1 unused modules.
+Module UART_rx directly or indirectly contains formal properties -> setting "keep" attribute.
+
+2.3. Executing PROC pass (convert processes to netlists).
+
+2.3.1. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Cleaned up 0 empty switches.
+
+2.3.2. Executing PROC_RMDEAD pass (remove dead branches from decision trees).
+Removed 1 dead cases from process $proc$UART_rx.v:82$10 in module UART_rx.
+Marked 9 switch rules as full_case in process $proc$UART_rx.v:82$10 in module UART_rx.
+Marked 1 switch rules as full_case in process $proc$UART_rx.v:60$9 in module UART_rx.
+Marked 1 switch rules as full_case in process $proc$UART_rx.v:29$1 in module UART_rx.
+Removed a total of 1 dead cases.
+
+2.3.3. Executing PROC_PRUNE pass (remove redundant assignments in processes).
+Removed 7 redundant assignments.
+Promoted 13 assignments to connections.
+
+2.3.4. Executing PROC_INIT pass (extract init attributes).
+Found init rule in `\UART_rx.$proc$UART_rx.v:0$29'.
+  Set init value: \nextStateReg = 2'00
+Found init rule in `\UART_rx.$proc$UART_rx.v:0$28'.
+  Set init value: \stateReg = 2'01
+Found init rule in `\UART_rx.$proc$UART_rx.v:0$27'.
+  Set init value: \nextCountingReg = 4'0000
+Found init rule in `\UART_rx.$proc$UART_rx.v:0$26'.
+  Set init value: \countingReg = 4'0000
+Found init rule in `\UART_rx.$proc$UART_rx.v:0$25'.
+  Set init value: \rx_done = 1'0
+Found init rule in `\UART_rx.$proc$UART_rx.v:0$24'.
+  Set init value: \dataReg = 8'00000000
+Found init rule in `\UART_rx.$proc$UART_rx.v:0$23'.
+  Set init value: \rx_done = 1'0
+
+2.3.5. Executing PROC_ARST pass (detect async resets in processes).
+Found async reset \rst in `\UART_rx.$proc$UART_rx.v:60$9'.
+Found async reset \rst in `\UART_rx.$proc$UART_rx.v:29$1'.
+
+2.3.6. Executing PROC_ROM pass (convert switches to ROMs).
+Converted 0 switches.
+<suppressed ~9 debug messages>
+
+2.3.7. Executing PROC_MUX pass (convert decision trees to multiplexers).
+Creating decoders for process `\UART_rx.$proc$UART_rx.v:0$29'.
+Creating decoders for process `\UART_rx.$proc$UART_rx.v:0$28'.
+Creating decoders for process `\UART_rx.$proc$UART_rx.v:0$27'.
+Creating decoders for process `\UART_rx.$proc$UART_rx.v:0$26'.
+Creating decoders for process `\UART_rx.$proc$UART_rx.v:0$25'.
+Creating decoders for process `\UART_rx.$proc$UART_rx.v:0$24'.
+Creating decoders for process `\UART_rx.$proc$UART_rx.v:0$23'.
+Creating decoders for process `\UART_rx.$proc$UART_rx.v:167$20'.
+Creating decoders for process `\UART_rx.$proc$UART_rx.v:82$10'.
+     1/29: $9\nextStateReg[1:0]
+     2/29: $3\rx_done[0:0]
+     3/29: $8\nextCountingReg[3:0]
+     4/29: $7\nextCountingReg[3:0]
+     5/29: $8\nextStateReg[1:0]
+     6/29: $2\rx_done[0:0]
+     7/29: $7\nextStateReg[1:0]
+     8/29: $6\nextDataRegSize[3:0]
+     9/29: $5\nextDataRegSize[3:0]
+    10/29: $6\nextStateReg[1:0]
+    11/29: $3\nextDataReg[7:0]
+    12/29: $6\nextCountingReg[3:0]
+    13/29: $5\nextCountingReg[3:0]
+    14/29: $4\nextDataRegSize[3:0]
+    15/29: $2\nextDataReg[7:0]
+    16/29: $5\nextStateReg[1:0]
+    17/29: $3\nextDataRegSize[3:0]
+    18/29: $4\nextStateReg[1:0]
+    19/29: $4\nextCountingReg[3:0]
+    20/29: $3\nextCountingReg[3:0]
+    21/29: $2\nextDataRegSize[3:0]
+    22/29: $3\nextStateReg[1:0]
+    23/29: $2\nextCountingReg[3:0]
+    24/29: $2\nextStateReg[1:0]
+    25/29: $1\nextCountingReg[3:0]
+    26/29: $1\nextStateReg[1:0]
+    27/29: $1\nextDataRegSize[3:0]
+    28/29: $1\nextDataReg[7:0]
+    29/29: $1\rx_done[0:0]
+Creating decoders for process `\UART_rx.$proc$UART_rx.v:60$9'.
+     1/4: $0\countingReg[3:0]
+     2/4: $0\stateReg[1:0]
+     3/4: $0\dataRegSize[3:0]
+     4/4: $0\dataReg[7:0]
+Creating decoders for process `\UART_rx.$proc$UART_rx.v:29$1'.
+     1/2: $0\clkWire[0:0]
+     2/2: $0\counter[32:0]
+
+2.3.8. Executing PROC_DLATCH pass (convert process syncs to latches).
+No latch inferred for signal `\UART_rx.\rx_done' from process `\UART_rx.$proc$UART_rx.v:82$10'.
+Removing init bit 1'0 for non-memory siginal `\UART_rx.\rx_done` in process `\UART_rx.$proc$UART_rx.v:82$10`.
+No latch inferred for signal `\UART_rx.\nextStateReg' from process `\UART_rx.$proc$UART_rx.v:82$10'.
+Removing init bit 1'0 for non-memory siginal `\UART_rx.\nextStateReg [0]` in process `\UART_rx.$proc$UART_rx.v:82$10`.
+Removing init bit 1'0 for non-memory siginal `\UART_rx.\nextStateReg [1]` in process `\UART_rx.$proc$UART_rx.v:82$10`.
+No latch inferred for signal `\UART_rx.\nextDataReg' from process `\UART_rx.$proc$UART_rx.v:82$10'.
+No latch inferred for signal `\UART_rx.\nextDataRegSize' from process `\UART_rx.$proc$UART_rx.v:82$10'.
+No latch inferred for signal `\UART_rx.\nextCountingReg' from process `\UART_rx.$proc$UART_rx.v:82$10'.
+Removing init bit 1'0 for non-memory siginal `\UART_rx.\nextCountingReg [0]` in process `\UART_rx.$proc$UART_rx.v:82$10`.
+Removing init bit 1'0 for non-memory siginal `\UART_rx.\nextCountingReg [1]` in process `\UART_rx.$proc$UART_rx.v:82$10`.
+Removing init bit 1'0 for non-memory siginal `\UART_rx.\nextCountingReg [2]` in process `\UART_rx.$proc$UART_rx.v:82$10`.
+Removing init bit 1'0 for non-memory siginal `\UART_rx.\nextCountingReg [3]` in process `\UART_rx.$proc$UART_rx.v:82$10`.
+
+2.3.9. Executing PROC_DFF pass (convert process syncs to FFs).
+Creating register for signal `\UART_rx.\stateReg' using process `\UART_rx.$proc$UART_rx.v:60$9'.
+  created $adff cell `$procdff$247' with positive edge clock and positive level reset.
+Creating register for signal `\UART_rx.\dataReg' using process `\UART_rx.$proc$UART_rx.v:60$9'.
+  created $adff cell `$procdff$250' with positive edge clock and positive level reset.
+Creating register for signal `\UART_rx.\dataRegSize' using process `\UART_rx.$proc$UART_rx.v:60$9'.
+  created $adff cell `$procdff$253' with positive edge clock and positive level reset.
+Creating register for signal `\UART_rx.\countingReg' using process `\UART_rx.$proc$UART_rx.v:60$9'.
+  created $adff cell `$procdff$256' with positive edge clock and positive level reset.
+Creating register for signal `\UART_rx.\clkWire' using process `\UART_rx.$proc$UART_rx.v:29$1'.
+  created $adff cell `$procdff$259' with positive edge clock and positive level reset.
+Creating register for signal `\UART_rx.\counter' using process `\UART_rx.$proc$UART_rx.v:29$1'.
+  created $adff cell `$procdff$262' with positive edge clock and positive level reset.
+
+2.3.10. Executing PROC_MEMWR pass (convert process memory writes to cells).
+
+2.3.11. Executing PROC_CLEAN pass (remove empty switches from decision trees).
+Removing empty process `UART_rx.$proc$UART_rx.v:0$29'.
+Removing empty process `UART_rx.$proc$UART_rx.v:0$28'.
+Removing empty process `UART_rx.$proc$UART_rx.v:0$27'.
+Removing empty process `UART_rx.$proc$UART_rx.v:0$26'.
+Removing empty process `UART_rx.$proc$UART_rx.v:0$25'.
+Removing empty process `UART_rx.$proc$UART_rx.v:0$24'.
+Removing empty process `UART_rx.$proc$UART_rx.v:0$23'.
+Removing empty process `UART_rx.$proc$UART_rx.v:167$20'.
+Found and cleaned up 9 empty switches in `\UART_rx.$proc$UART_rx.v:82$10'.
+Removing empty process `UART_rx.$proc$UART_rx.v:82$10'.
+Removing empty process `UART_rx.$proc$UART_rx.v:60$9'.
+Removing empty process `UART_rx.$proc$UART_rx.v:29$1'.
+Cleaned up 9 empty switches.
+
+2.3.12. Executing OPT_EXPR pass (perform const folding).
+Optimizing module UART_rx.
+<suppressed ~17 debug messages>
+
+2.4. Executing FUTURE pass.
+
+2.5. Executing OPT_EXPR pass (perform const folding).
+Optimizing module UART_rx.
+
+2.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \UART_rx..
+Removed 1 unused cells and 100 unused wires.
+<suppressed ~2 debug messages>
+
+2.7. Executing CHECK pass (checking for obvious problems).
+Checking module UART_rx...
+Found and reported 0 problems.
+
+2.8. Executing OPT pass (performing simple optimizations).
+
+2.8.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module UART_rx.
+
+2.8.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\UART_rx'.
+<suppressed ~132 debug messages>
+Removed a total of 44 cells.
+
+2.8.3. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \UART_rx..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+    dead port 2/2 on $mux $procmux$159.
+    dead port 2/2 on $mux $procmux$161.
+    dead port 2/2 on $mux $procmux$169.
+    dead port 2/2 on $mux $procmux$171.
+    dead port 2/2 on $mux $procmux$179.
+    dead port 2/2 on $mux $procmux$181.
+    dead port 2/2 on $mux $procmux$188.
+    dead port 2/2 on $mux $procmux$195.
+    dead port 2/2 on $mux $procmux$202.
+    dead port 2/2 on $mux $procmux$210.
+    dead port 2/2 on $mux $procmux$218.
+    dead port 2/2 on $mux $procmux$100.
+    dead port 2/2 on $mux $procmux$107.
+    dead port 2/2 on $mux $procmux$109.
+    dead port 2/2 on $mux $procmux$116.
+    dead port 2/2 on $mux $procmux$118.
+    dead port 2/2 on $mux $procmux$125.
+    dead port 2/2 on $mux $procmux$127.
+    dead port 2/2 on $mux $procmux$133.
+    dead port 2/2 on $mux $procmux$34.
+    dead port 2/2 on $mux $procmux$36.
+    dead port 2/2 on $mux $procmux$42.
+    dead port 2/2 on $mux $procmux$44.
+    dead port 2/2 on $mux $procmux$139.
+    dead port 2/2 on $mux $procmux$50.
+    dead port 2/2 on $mux $procmux$52.
+    dead port 2/2 on $mux $procmux$57.
+    dead port 2/2 on $mux $procmux$62.
+    dead port 2/2 on $mux $procmux$145.
+    dead port 2/2 on $mux $procmux$67.
+    dead port 2/2 on $mux $procmux$75.
+    dead port 2/2 on $mux $procmux$77.
+    dead port 2/2 on $mux $procmux$79.
+    dead port 2/2 on $mux $procmux$87.
+    dead port 2/2 on $mux $procmux$89.
+    dead port 2/2 on $mux $procmux$91.
+    dead port 2/2 on $mux $procmux$151.
+    dead port 2/2 on $mux $procmux$98.
+Removed 38 multiplexer ports.
+<suppressed ~7 debug messages>
+
+2.8.4. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \UART_rx.
+    New ctrl vector for $pmux cell $procmux$230: { $procmux$162_CMP $eq$UART_rx.v:169$22_Y $auto$opt_reduce.cc:137:opt_pmux$264 }
+    New ctrl vector for $pmux cell $procmux$235: { $eq$UART_rx.v:169$22_Y $auto$opt_reduce.cc:137:opt_pmux$266 }
+    New ctrl vector for $pmux cell $procmux$240: { $auto$opt_reduce.cc:137:opt_pmux$268 $procmux$221_CMP }
+  Optimizing cells in module \UART_rx.
+Performed a total of 3 changes.
+
+2.8.5. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\UART_rx'.
+Removed a total of 0 cells.
+
+2.8.6. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \UART_rx..
+Removed 0 unused cells and 82 unused wires.
+<suppressed ~1 debug messages>
+
+2.8.7. Executing OPT_EXPR pass (perform const folding).
+Optimizing module UART_rx.
+
+2.8.8. Rerunning OPT passes. (Maybe there is more to do..)
+
+2.8.9. Executing OPT_MUXTREE pass (detect dead branches in mux trees).
+Running muxtree optimizer on module \UART_rx..
+  Creating internal representation of mux trees.
+  Evaluating internal representation of mux trees.
+  Analyzing evaluation results.
+Removed 0 multiplexer ports.
+<suppressed ~7 debug messages>
+
+2.8.10. Executing OPT_REDUCE pass (consolidate $*mux and $reduce_* inputs).
+  Optimizing cells in module \UART_rx.
+Performed a total of 0 changes.
+
+2.8.11. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\UART_rx'.
+Removed a total of 0 cells.
+
+2.8.12. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \UART_rx..
+
+2.8.13. Executing OPT_EXPR pass (perform const folding).
+Optimizing module UART_rx.
+
+2.8.14. Finished OPT passes. (There is nothing left to do.)
+
+2.9. Executing WREDUCE pass (reducing word size of cells).
+Removed top 25 bits (of 33) from port B of cell UART_rx.$eq$UART_rx.v:36$3 ($eq).
+Removed top 31 bits (of 32) from mux cell UART_rx.$ternary$UART_rx.v:36$4 ($mux).
+Removed top 25 bits (of 33) from port B of cell UART_rx.$eq$UART_rx.v:40$5 ($eq).
+Removed top 31 bits (of 32) from port B of cell UART_rx.$add$UART_rx.v:40$6 ($add).
+Removed top 1 bits (of 4) from port B of cell UART_rx.$eq$UART_rx.v:104$12 ($eq).
+Removed top 31 bits (of 32) from port B of cell UART_rx.$add$UART_rx.v:112$13 ($add).
+Removed top 28 bits (of 32) from port Y of cell UART_rx.$add$UART_rx.v:112$13 ($add).
+Removed top 31 bits (of 32) from port B of cell UART_rx.$add$UART_rx.v:126$16 ($add).
+Removed top 28 bits (of 32) from port Y of cell UART_rx.$add$UART_rx.v:126$16 ($add).
+Removed top 1 bits (of 2) from port B of cell UART_rx.$procmux$162_CMP0 ($eq).
+Removed top 28 bits (of 32) from wire UART_rx.$add$UART_rx.v:112$13_Y.
+
+2.10. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \UART_rx..
+Removed 0 unused cells and 2 unused wires.
+<suppressed ~1 debug messages>
+
+2.11. Executing MEMORY_COLLECT pass (generating $mem cells).
+
+2.12. Executing OPT pass (performing simple optimizations).
+
+2.12.1. Executing OPT_EXPR pass (perform const folding).
+Optimizing module UART_rx.
+
+2.12.2. Executing OPT_MERGE pass (detect identical cells).
+Finding identical cells in module `\UART_rx'.
+Removed a total of 0 cells.
+
+2.12.3. Executing OPT_CLEAN pass (remove unused cells and wires).
+Finding unused cells or wires in module \UART_rx..
+
+2.12.4. Finished fast OPT passes.
+
+2.13. Printing statistics.
+
+=== UART_rx ===
+
+   Number of wires:                 57
+   Number of wire bits:            280
+   Number of public wires:          17
+   Number of public wire bits:     116
+   Number of ports:                  5
+   Number of port bits:             12
+   Number of memories:               0
+   Number of memory bits:            0
+   Number of processes:              0
+   Number of cells:                 53
+     $add                            3
+     $adff                           6
+     $check                          1
+     $eq                             8
+     $logic_not                      1
+     $mux                           26
+     $pmux                           5
+     $reduce_or                      3
+
+2.14. Executing CHECK pass (checking for obvious problems).
+Checking module UART_rx...
+Found and reported 0 problems.
+
+3. Executing HIERARCHY pass (managing design hierarchy).
+Attribute `top' found on module `UART_rx'. Setting top module to UART_rx.
+
+3.1. Analyzing design hierarchy..
+Top module:  \UART_rx
+
+3.2. Analyzing design hierarchy..
+Top module:  \UART_rx
+Removed 0 unused modules.
+Module UART_rx directly or indirectly contains formal properties -> setting "keep" attribute.
+
+4. Executing jny backend.
+
+5. Executing RTLIL backend.
+Output filename: ../model/design.il
+
+End of script. Logfile hash: 963564a209, CPU: user 0.06s system 0.01s, MEM: 18.29 MB peak
+Yosys 0.48+45 (git sha1 8acc77c1e, g++ 11.4.0-1ubuntu1~22.04 -fPIC -O3)
+Time spent: 20% 5x opt_clean (0 sec), 19% 6x opt_expr (0 sec), ...

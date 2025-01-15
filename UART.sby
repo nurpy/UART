@@ -1,0 +1,17 @@
+
+[options]
+mode cover
+depth 6000
+
+[engines]
+smtbmc
+
+[script]
+
+read -formal UART_rx.v
+prep -top UART_rx
+
+[files]
+UART_rx.v
+
+

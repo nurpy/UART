@@ -1,0 +1,9 @@
+# running in UART/src/
+
+read -formal UART_rx.v
+prep -top UART_rx
+
+hierarchy -smtcheck
+rename -witness
+write_jny -no-connections ../model/design.json
+write_rtlil ../model/design.il
